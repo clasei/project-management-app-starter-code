@@ -112,6 +112,7 @@ function EditProjectPage() {
       </form>
 
       <button onClick={deleteProject}>Delete Project</button>      
+  
     </div>
   );
 }
