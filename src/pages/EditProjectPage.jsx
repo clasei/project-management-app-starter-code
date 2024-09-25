@@ -25,7 +25,7 @@ function EditProjectPage() {
   // updates info when we acces the first time
   useEffect(() => {
 
-    axios.get(`https://project-management-api-4641927fee65.herokuapp.com/projects/${params.projectId}`)
+    axios.get(`${import.meta.env.VITE_SERVER_URL}/projects/${params.projectId}`)
     .then((response) => {
       console.log(response)
 
@@ -55,7 +55,7 @@ function EditProjectPage() {
 
     try { // evth asynchronous hast be inside the try
 
-      await axios.put(`https://project-management-api-4641927fee65.herokuapp.com/projects/${params.projectId}`, updatedProject)
+      await axios.put(`${import.meta.env.VITE_SERVER_URL}/projects/${params.projectId}`, updatedProject)
       
       // front-end redirection
       navigate(`/projects/${params.projectId}`)
@@ -71,7 +71,7 @@ function EditProjectPage() {
   const deleteProject = () => {
     // ...delete logic should be here
 
-    axios.delete(`https://project-management-api-4641927fee65.herokuapp.com/projects/${params.projectId}`)
+    axios.delete(`${import.meta.env.VITE_SERVER_URL}/projects/${params.projectId}`)
 
     .then(() => {
 

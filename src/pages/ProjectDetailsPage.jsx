@@ -30,7 +30,7 @@ function ProjectDetailsPage () {
 
     try {
 
-      const response = await axios.get(`https://project-management-api-4641927fee65.herokuapp.com/projects/${params.projectId}?_embed=tasks`)
+      const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/projects/${params.projectId}?_embed=tasks`)
       // check docs to make sure you customize the url ok
       console.log(response)
 

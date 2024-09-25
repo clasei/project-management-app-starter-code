@@ -25,7 +25,7 @@ function CreateProjectPage() {
         // back-end route
         // POST, so we can omit the variable
         // const response = await axios.post(`https://project-management-api-4641927fee65.herokuapp.com/projects`, newProject)
-        await axios.post(`https://project-management-api-4641927fee65.herokuapp.com/projects`, newProject)
+        await axios.post(`${import.meta.env.VITE_SERVER_URL}/projects`, newProject)
 
         // navigate to projects
         // front-end route

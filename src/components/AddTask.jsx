@@ -20,7 +20,7 @@ function AddTask(props) {
 
     console.log(newTask)
 
-    axios.post(`https://project-management-api-4641927fee65.herokuapp.com/tasks`, newTask)
+    axios.post(`${import.meta.env.VITE_SERVER_URL}/tasks`, newTask)
     .then(() => {
       // do sth with the user
       console.log('task created')
