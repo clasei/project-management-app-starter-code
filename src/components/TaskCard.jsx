@@ -1,10 +1,10 @@
 
-function TaskCard() {
+function TaskCard(props) {
     return (
       <div className="TaskCard card">
-        <h3>TASK_TITLE_HERE</h3>
+        <h3>{props.title}</h3>
         <h4>Description:</h4>
-        <p>TASK_DESCRIPTION_HERE</p>
+        <p>{props.description}</p>
       </div>
     );
   }
