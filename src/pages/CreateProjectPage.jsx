@@ -1,12 +1,40 @@
 import { useState } from "react";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function CreateProjectPage() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // ...logic for creating a new Project should be here
+
+    // recopilate new project data
+    const newProject = { // info comes from documentation !!!
+      title,
+      description // this is the same that description: description
+    }
+
+
+    try {
+
+        // call API to create new project // ==> async funciton
+        // post used according to docs to create a new project !!!
+        // back-end route
+        // POST, so we can omit the variable
+        // const response = await axios.post(`https://project-management-api-4641927fee65.herokuapp.com/projects`, newProject)
+        await axios.post(`https://project-management-api-4641927fee65.herokuapp.com/projects`, newProject)
+
+        // navigate to projects
+        // front-end route
+        navigate("/projects") 
+
+      
+    } catch (error) {
+      
+    }
 
   };  
 

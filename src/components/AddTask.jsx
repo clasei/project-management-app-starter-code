@@ -1,7 +1,8 @@
 
 import { useState } from "react";
+import axios from "axios";
 
-function AddTask() {
+function AddTask(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -11,6 +12,24 @@ function AddTask() {
     // ...logic for creating a new Task should be here
     // ... the ID of the Project should be part of the Task data
 
+    const newTask = {
+      title, 
+      description,
+      projectId: props.projectId
+    }
+
+    console.log(newTask)
+
+    axios.post(`https://project-management-api-4641927fee65.herokuapp.com/tasks`, newTask)
+    .then(() => {
+      // do sth with the user
+      console.log('task created')
+      props.getData() // this updates the state of the project and refresh the page !!!
+      // getData() makes another call and updates all the info
+    })
+    .catch((error) => {
+      console.log(error)
+    })
   };
   
   return (
