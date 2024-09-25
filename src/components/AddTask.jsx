@@ -15,7 +15,7 @@ function AddTask(props) {
     const newTask = {
       title, 
       description,
-      projectId: props.projectId
+      projectId: props.projectId // projectId(props.projectId)
     }
 
     console.log(newTask)
