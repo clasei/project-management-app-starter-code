@@ -70,6 +70,17 @@ function EditProjectPage() {
 
   const deleteProject = () => {
     // ...delete logic should be here
+
+    axios.delete(`https://project-management-api-4641927fee65.herokuapp.com/projects/${params.projectId}`)
+
+    .then(() => {
+
+      navigate('/projects')
+
+    })
+    .catch((error) => {
+      console.log(error)
+    })
     
   }; 
 
